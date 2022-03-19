@@ -3,6 +3,10 @@
 
 #include <stdlib.h>
 
+/*
+cast to char pointer because these functions don't need to access the 
+data in the array, so assume it's pointing to characters
+*/
 int _list_expand(char **data, int *length, int *capacity, int type_size);
 int _list_shrink(char **data, int *length, int *capacity, int type_size);
 
@@ -30,6 +34,7 @@ int _list_shrink(char **data, int *length, int *capacity, int type_size);
 #define list_pop(l)\
 	( (l)->length != 0 ? (_list_shrink(_list_unpack(l)), (l)->data[--(l)->length]) : 0 )
 
+// predefined list types
 typedef list(char) list_char;
 typedef list(int) list_int;
 typedef list(float) list_float;

@@ -14,6 +14,7 @@ int _list_expand(char **data, int *length, int *capacity, int type_size) {
 	return 1;
 }
 
+// if the length of the array is less than half of the allocated memory, halve the size of the allocated memory
 int _list_shrink(char **data, int *length, int *capacity, int type_size) {
 	if(*length - 1 < *capacity / 2) {
 		void *temp;
