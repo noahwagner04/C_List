@@ -5,7 +5,7 @@ build/liblist.a: build/list.o
 	ar rcs $@ $<
 
 build/list.o: src/list.c include/list.h
-	gcc -c -I include $< -o $@
+	gcc -Wall -c -I include $< -o $@
 
 .PHONY: clean
 clean:
