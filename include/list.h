@@ -10,8 +10,6 @@ data in the array, so assume it's pointing to characters
 int _list_expand(char **data, int *length, int *capacity, int type_size);
 int _list_shrink(char **data, int *length, int *capacity, int type_size);
 
-void _list_init_capacity(int length, int *capacity);
-
 // creates an arbitrary type list struct
 #define list(t)\
 	struct { t *data; int length, capacity; }
@@ -21,13 +19,14 @@ void _list_init_capacity(int length, int *capacity);
 	memset(l, 0, sizeof(*(l)))
 
 // creates a list struct with the correct length and capacity
+// NOTE: just make capacity = length * 2
 #define list_create(lt, size)\
 	({\
 		lt _list;\
 		_list_set_empty(&_list);\
 		_list.length = (size);\
 		_list.data = malloc((size) * sizeof(*_list.data));\
-		_list_init_capacity(_list.length, &_list.capacity);\
+		_list.capacity = (size) * 2;\
 		_list;\
 	})
 

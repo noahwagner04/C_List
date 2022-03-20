@@ -27,24 +27,3 @@ int _list_shrink(char **data, int *length, int *capacity, int type_size) {
 	}
 	return 1;
 }
-
-// set capacity to the nearest power of 2 to length that is greater than length
-void _list_init_capacity(int length, int *capacity) {
-
-	if(length == 0) {
-		*capacity = 1;
-		return;
-	}
-
-	int final_capacity = 1;
-	int leading_zeros = 0;
-	unsigned int length_bit_count = sizeof(length) * 8;
-
-	while((unsigned int)length < pow(2, length_bit_count - 1)) {
-		length <<= 1;
-		leading_zeros++;
-	}
-
-	final_capacity <<= length_bit_count - leading_zeros;
-	*capacity = final_capacity;
-}
