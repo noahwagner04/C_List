@@ -22,7 +22,6 @@ int _list_splice(char **data, int *length, int *capacity, int type_size, int ind
 	memset(l, 0, sizeof(*(l)))
 
 // creates a list struct with the correct length and capacity
-// NOTE: just make capacity = length * 2
 #define list_create(lt, size)\
 	({\
 		lt _list;\
