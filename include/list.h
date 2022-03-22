@@ -63,9 +63,9 @@ returns the new length of the array on success, and 0 if start is out of range
 	( _list_splice(_list_unpack(l), index) ? --(l)->length : 0 )
 
 // predefined list types
-typedef list(char) list_char;
-typedef list(int) list_int;
-typedef list(float) list_float;
-typedef list(double) list_double;
+typedef list(char) ListChar;
+typedef list(int) ListInt;
+typedef list(float) ListFloat;
+typedef list(double) ListDouble;
 
 #endif
