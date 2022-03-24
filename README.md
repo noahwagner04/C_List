@@ -1,7 +1,7 @@
 # List
 ## A basic dynamic array system for C
 ### How to build
-This library only contains 2 files, list.c and list.h, so compiling is stright forward. If you want, you can use the makefile provided by running the following commands in the project root.
+This library only contains 2 files, list.c and list.h, so compiling is stright forward. If you want, you can use the provided makefile by running the following commands in the project root.
 ```
 mkdir build
 make
