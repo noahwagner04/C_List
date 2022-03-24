@@ -43,10 +43,11 @@ list_insert(&points, 3, p1);
 list_splice(&points, 7);
 
 // if you want to access the data in the list, you must use the data pointer
-printf("x: %i y: %i\n", points.data[5].x, points.data[5].y);
+int x = points.data[5].x;
+int y = points.data[5].y;
 	
 // the length attribute can be used to access the length of the list
-printf("point count: %i\n", points.length);
+int length = points.length;
 
 // free the memory taken up by the list
 list_free(&points);
