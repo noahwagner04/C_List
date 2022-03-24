@@ -59,7 +59,7 @@ int main() {
 }
 ```
 
-### reffernces
+### References
 Here are some resources that helped me decide how to implement the library.
 * https://github.com/rxi/vec
 * https://stackoverflow.com/questions/60643222/how-to-solve-right-hand-operand-has-no-effect-error
