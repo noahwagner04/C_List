@@ -61,3 +61,4 @@ Here are some resources that helped me decide how to implement the library.
 * https://stackoverflow.com/questions/3532621/using-and-returning-output-in-c-macro
 * https://stackoverflow.com/questions/6966299/error-lvalue-required-in-this-simple-c-code-ternary-with-assignment
 * https://stackoverflow.com/questions/10820340/the-need-for-parentheses-in-macros-in-c
+* https://youtu.be/5AllG-i_yto
