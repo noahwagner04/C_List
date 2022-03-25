@@ -26,9 +26,9 @@ int _list_splice(char **data, int *length, int *capacity, int type_size, int ind
 	({\
 		lt _list;\
 		_list_set_empty(&_list);\
-		_list.length = (size);\
-		_list.data = malloc((size) * sizeof(*_list.data));\
-		_list.capacity = (size) * 2;\
+		_list.length = (size) < 0 ? 0 : (size);\
+		_list.data = malloc(_list.length * sizeof(*_list.data));\
+		_list.capacity = _list.length * 2;\
 		_list;\
 	})
 
