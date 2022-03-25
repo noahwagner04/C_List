@@ -62,6 +62,8 @@ returns the new length of the array on success, and 0 if start is out of range
 #define list_splice(l, index)\
 	( _list_splice(_list_unpack(l), index) ? --(l)->length : 0 )
 
+// should probably add a clone function
+
 // predefined list types
 typedef list(char) ListChar;
 typedef list(int) ListInt;
