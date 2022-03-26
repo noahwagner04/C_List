@@ -17,17 +17,17 @@ struct point {
 
 typedef list(struct point) ListPoint;
 ```
-Instantiating lists is very simple, use the list_create function.
+Instantiating lists is very simple, use the list_init function.
 ```c
-ListPoint points = list_create(ListPoint, 10);
+ListPoint points;
+list_init(&points);
 
 ```
-The above code creates a list of point structs that has an initial length of 10.
+The above code creates an empty list of point structs.
 
 #### Modifying & Using
 Currently there are four ways to modify a list, all of which can only change 1 index at a time.
 ```c
-ListPoint points = list_create(ListPoint, 10);
 struct point p1 = {1, 2};
 
 // adds a point to the end of the list
