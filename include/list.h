@@ -40,9 +40,9 @@ int _list_splice(char **data, int *length, int *capacity, int type_size, int ind
 #define _list_unpack(l)\
 	(char **) &(l)->data, &(l)->length, &(l)->capacity, sizeof(*(l)->data)
 
-// returns the new length of the array, returns 0 on failure to reallocate memory
+// returns the new length of the array, returns -1 on failure to reallocate memory
 #define list_push(l, val)\
-	( _list_expand(_list_unpack(l)) ? ((l)->data[(l)->length++] = (val), (l)->length) : 0 )
+	( _list_expand(_list_unpack(l)) == 0 ? ((l)->data[(l)->length++] = (val), (l)->length) : -1 )
 
 // returns the variable that was removed from the array
 #define list_pop(l)\
@@ -50,17 +50,17 @@ int _list_splice(char **data, int *length, int *capacity, int type_size, int ind
 
 /*
 inserts the given value at the given index, where index is less than or equal to the list's length
-returns the new length of the array on success, and 0 on failure to expand the list or if index is out of range
+returns the new length of the array on success, and -1 on failure to expand the list or if index is out of range
 */
 #define list_insert(l, index, val)\
-	( _list_insert(_list_unpack(l), index) ? ((l)->data[index] = (val), ++(l)->length) : 0 )
+	( _list_insert(_list_unpack(l), index) == 0 ? ((l)->data[index] = (val), ++(l)->length) : -1 )
 
 /*
 removes the value at the given index of the list
-returns the new length of the array on success, and 0 if start is out of range
+returns the new length of the array on success, and -1 if start is out of range
 */
 #define list_splice(l, index)\
-	( _list_splice(_list_unpack(l), index) ? --(l)->length : 0 )
+	( _list_splice(_list_unpack(l), index) == 0 ? --(l)->length : -1 )
 
 // should probably add a clone function
 
