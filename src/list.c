@@ -39,7 +39,7 @@ int _list_shrink(char **data, int *length, int *capacity, int type_size) {
 // return 0 if the resize was succesful, return -1 if the resize failed or if the index is out of range
 int _list_insert(char **data, int *length, int *capacity, int type_size, int index) {
 	int expand_result = _list_expand(data, length, capacity, type_size);
-	if (expand_result == 0 || index > *length || index < 0) return -1;
+	if (expand_result == -1 || index > *length || index < 0) return -1;
 	memmove (
 	    *data + (index + 1) * type_size,
 	    *data + index * type_size,
