@@ -18,23 +18,12 @@ int _list_splice(char **data, int *length, int *capacity, int type_size, int ind
 	struct { t *data; int length, capacity; }
 
 // sets all values in list struct to 0
-#define _list_set_empty(l)\
+#define list_init(l)\
 	memset(l, 0, sizeof(*(l)))
-
-// creates a list struct with the correct length and capacity
-#define list_create(lt, size)\
-	({\
-		lt _list;\
-		_list_set_empty(&_list);\
-		_list.length = (size) < 0 ? 0 : (size);\
-		_list.data = malloc(_list.length * sizeof(*_list.data));\
-		_list.capacity = _list.length * 2;\
-		_list;\
-	})
 
 // frees the memory from the heap, sets all values in list struct to 0
 #define list_free(l)\
-	( free((l)->data), _list_set_empty(l) )
+	( free((l)->data), list_init(l) )
 
 // get a pointer to each variable in the list struct, used as input to various functions
 #define _list_unpack(l)\
@@ -62,7 +51,7 @@ returns the new length of the array on success, and -1 if start is out of range
 #define list_splice(l, index)\
 	( _list_splice(_list_unpack(l), index) == 0 ? --(l)->length : -1 )
 
-// should probably add a clone function
+// should probably add a clone function / init_from_existing_array func
 
 // predefined list types
 typedef list(char) ListChar;
