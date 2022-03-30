@@ -9,7 +9,7 @@ make
 A liblist.a file will be generated in the build directory.
 ### How to use
 #### Instantiating
-There are four default list types that are declared in list.h: ListInt, ListChar, ListDouble, and ListFloat. Use the list(type) maro in a typedef if you want to create your own list types.
+There are four default list types that are declared in list.h: ListInt, ListChar, ListDouble, and ListFloat. Use the list(type) macro in a typedef if you want to create your own list types.
 ```c
 struct point {
 	int x,y;
