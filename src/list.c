@@ -35,8 +35,10 @@ int _list_shrink(char **data, int *length, int *capacity, int type_size) {
 	return 0;
 }
 
-// shift the list 1 space to the right starting at the specified index, resize the list if neccessary
-// return 0 if the resize was succesful, return -1 if the resize failed or if the index is out of range
+/*
+shift the list 1 space to the right starting at the specified index, resize the list if neccessary
+return 0 if the resize was succesful, return -1 if the resize failed or if the index is out of range
+*/
 int _list_insert(char **data, int *length, int *capacity, int type_size, int index) {
 	int expand_result = _list_expand(data, length, capacity, type_size);
 	if (expand_result == -1 || index > *length || index < 0) return -1;
@@ -48,8 +50,10 @@ int _list_insert(char **data, int *length, int *capacity, int type_size, int ind
 	return 0;
 }
 
-// shift the list 1 space to the left starting at the specified index, resize the list if neccessary
-// return -1 if the index is out of range or 0 otherwise
+/*
+shift the list 1 space to the left starting at the specified index, resize the list if neccessary
+return -1 if the index is out of range or 0 otherwise
+*/
 int _list_splice(char **data, int *length, int *capacity, int type_size, int index) {
 	_list_shrink(data, length, capacity, type_size);
 	if ((index + 1) > *length || index < 0) return -1;
